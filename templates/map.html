@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5v679ZKDIgDOmpqfqSs3OQZkvVE9MzPX"></script>
+	<title>地图展示</title>
+</head>
+<body>
+	<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");    // 创建Map实例
+	map.centerAndZoom(new BMap.Point(120.44369618577157, 36.08060905651566), 11);  // 初始化地图,设置中心点坐标和地图级别
+	//添加地图类型控件
+	map.addControl(new BMap.MapTypeControl({
+		mapTypes:[
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]}));
+	map.setCurrentCity("成都");          // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>
+<!--<script type="text/javascript">-->
+<!--	//百度地图API功能-->
+<!--	function loadJScript() {-->
+<!--		var script = document.createElement("script");-->
+<!--		script.type = "text/javascript";-->
+<!--		script.src = "http://api.map.baidu.com/api?v=2.0&ak=您的密钥&callback=init";-->
+<!--		document.body.appendChild(script);-->
+<!--	}-->
+<!--	function init() {-->
+<!--		var map = new BMap.Map("allmap");            // 创建Map实例-->
+<!--		var point = new BMap.Point(104.07, 30.67); // 创建点坐标-->
+<!--		map.centerAndZoom(point,15);-->
+<!--		map.enableScrollWheelZoom();                 //启用滚轮放大缩小-->
+<!--	}-->
+<!--	window.onload = loadJScript;  //异步加载地图-->
+<!--</script>-->
+<!--<script type="text/javascript">-->
+<!--	// 百度地图API功能-->
+<!--	var map = new BMap.Map("allmap");-->
+<!--	map.centerAndZoom("重庆",12);  //初始化地图,设置城市和地图级别。-->
+<!--	var pointA = new BMap.Point(106.486654,29.490295);  // 创建点坐标A&#45;&#45;大渡口区-->
+<!--	var pointB = new BMap.Point(106.581515,29.615467);  // 创建点坐标B&#45;&#45;江北区-->
+<!--	alert('从大渡口区到江北区的距离是：'+(map.getDistance(pointA,pointB)).toFixed(2)+' 米。');  //获取两点距离,保留小数点后两位-->
+<!--	var polyline = new BMap.Polyline([pointA,pointB], {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5});  //定义折线-->
+<!--	map.addOverlay(polyline);     //添加折线到地图上-->
+<!--</script>-->
